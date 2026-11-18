@@ -9,6 +9,12 @@
 - **Swipe shortcuts**: the `swipe_button_mapper` node in [boards/shields/toucan/toucan.dtsi](boards/shields/toucan/toucan.dtsi)
 - **Invert scroll / trackpad settings**: the `tps43_trackpad` node in [boards/shields/toucan/toucan_right.overlay](boards/shields/toucan/toucan_right.overlay)
 
+# Keymap
+
+Auto-generated with [keymap-drawer](https://github.com/caksoylar/keymap-drawer) on every keymap change (see [keymap-drawer.yaml](.github/workflows/keymap-drawer.yaml)).
+
+![Toucan2 keymap](keymap-drawer/toucan.svg)
+
 # License
 
 The code in this repo is available under the MIT license.
