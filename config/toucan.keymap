@@ -120,7 +120,7 @@
             display-name = "MOU";
             bindings = <
                 &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans &trans
+                &trans &kp LGUI &kp LALT &kp LCTRL &kp LSHFT &trans           &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans &trans
                             &mkp MCLK &mkp LCLK &mkp RCLK           &mkp LCLK &mkp RCLK &mkp MCLK
             >;
