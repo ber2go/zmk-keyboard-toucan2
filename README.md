@@ -15,6 +15,23 @@ Auto-generated with [keymap-drawer](https://github.com/caksoylar/keymap-drawer) 
 
 ![Toucan2 keymap](keymap-drawer/toucan.svg)
 
+# Debugging with USB logging
+
+`CONFIG_ZMK_USB_LOGGING=y` in the `.conf` files enables serial logging over USB, which shows each key position and whether a home row mod resolved as tap or hold. Rebuild and reflash after changing it. Remove it when done, since it increases power use and can add latency.
+
+**Reading the log by OS**
+
+- **macOS:** `screen /dev/tty.usbmodem* 115200`
+- **Linux:** `screen /dev/ttyACM0 115200` (you may need to be in the `dialout` group)
+- **Windows:** Open PuTTY or Tera Term, choose Serial, pick the COM port shown in Device Manager, and set 115200 baud.
+- **Any OS:** The `serial-monitor` extension in VS Code, or `python -m serial.tools.miniterm <port> 115200` (requires `pyserial`).
+
+**Caveats**
+
+- The keyboard must be connected over USB. The log doesn't come through Bluetooth.
+- Only the half you plug in logs its own events. On a split keyboard, the central half (usually left) also reports the other half's key presses.
+- If you use ZMK's `zmk-usb-logging` snippet instead, the config line isn't needed, but your build setup must support snippets.
+
 # License
 
 The code in this repo is available under the MIT license.
