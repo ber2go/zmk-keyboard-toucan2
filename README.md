@@ -17,7 +17,7 @@ Auto-generated with [keymap-drawer](https://github.com/caksoylar/keymap-drawer) 
 
 # Debugging with USB logging
 
-`CONFIG_ZMK_USB_LOGGING=y` in the `.conf` files enables serial logging over USB, which shows each key position and whether a home row mod resolved as tap or hold. Rebuild and reflash after changing it. Remove it when done, since it increases power use and can add latency.
+Use ZMK's `zmk-usb-logging` snippet (not `CONFIG_ZMK_USB_LOGGING=y` alone, which fails to build: it needs the CDC-ACM devicetree node the snippet adds, and USB is unavailable on the split peripheral/right half). Flash the `toucan_left_usb_logging` firmware artifact (a separate left-half entry in `build.yaml` using that snippet) instead of the regular left firmware. The left half already uses `studio-rpc-usb-uart`, which claims the same USB serial port, so the logging build omits Studio. It shows each key position and whether a home row mod resolved as tap or hold. Remove it when done, since it increases power use and can add latency.
 
 **Reading the log by OS**
 
