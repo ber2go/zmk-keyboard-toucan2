@@ -4,6 +4,11 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// Key positions in each layer's 42 bindings (the outer pinky columns are unused).
+#define KEYS_L 1 2 3 4 5 13 14 15 16 17 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 18 19 20 21 22 30 31 32 33 34
+#define THUMBS 36 37 38 39 40 41
+
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
 
 &lt {
@@ -14,6 +19,8 @@
 
 / {
     behaviors {
+        // "Timeless" home row mods (https://github.com/urob/zmk-config#timeless-homerow-mods):
+        // a mod only resolves as hold when a key on the opposite hand or a thumb is tapped while it is held.
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -22,10 +29,10 @@
             #binding-cells = <2>;
             quick-tap-ms = <175>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
             require-prior-idle-ms = <125>;
             hold-trigger-on-release;
-            hold-trigger-key-positions = <6 7 8 9 10 18 19 21 22 30 31 32 33 34 39 40 41 20>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
 
         hmr: hmr {
@@ -39,7 +46,7 @@
             tapping-term-ms = <280>;
             require-prior-idle-ms = <125>;
             hold-trigger-on-release;
-            hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 25 26 27 28 29 36 37 38>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
     };
 
