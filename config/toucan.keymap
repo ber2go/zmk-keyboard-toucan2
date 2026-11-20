@@ -22,7 +22,7 @@
             #binding-cells = <2>;
             quick-tap-ms = <175>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             require-prior-idle-ms = <125>;
             hold-trigger-on-release;
             hold-trigger-key-positions = <6 7 8 9 10 18 19 21 22 30 31 32 33 34 39 40 41 20>;
