@@ -48,6 +48,36 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
+
+        // Shift variants with a shorter tapping term so same-hand combos like Shift+V register Shift sooner.
+        // A fast same-hand roll (e.g. F then V) may produce a shifted key; raise tapping-term-ms if so.
+        hmls: hmls {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMLS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+        };
+
+        hmrs: hmrs {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMRS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+        };
     };
 
     combos {
@@ -68,7 +98,7 @@
             display-name = "BASE";
             bindings = <
                 &none  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
-                &none  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHIFT F  &kp G  &kp H  &hmr RSHIFT J  &hmr RCTRL K  &hmr LALT L  &hmr LGUI SQT  &none
+                &none  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hmls LSHIFT F  &kp G  &kp H  &hmrs RSHIFT J  &hmr RCTRL K  &hmr LALT L  &hmr LGUI SQT  &none
                 &none  &mt LS(LA(LC(LGUI))) Z  &mt LS(LC(LALT)) X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &none
                           &lt 0 ESC  &lt 1 SPACE  &lt 5 TAB   &lt 3 ENTER  &lt 2 BACKSPACE  &lt 4 DEL
             >;
